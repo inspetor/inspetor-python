@@ -1,6 +1,6 @@
 
 <p>
-  <img src="https://github.com/inspetor/slate/blob/master/source/images/logo-color.png" width="200" height="40" alt="Inspetor Logo"> </img>
+  <img src="https://inspetor-assets.s3-sa-east-1.amazonaws.com/images/inspetor-logo.png" width="200" height="40" alt="Inspetor Logo"> </img>
 </p>
 
 # Inspetor Antifraud

@@ -1,4 +1,3 @@
-import snowplow_tracker
 from snowplow_tracker import logger
 from snowplow_tracker import SelfDescribingJson
 from snowplow_tracker import Subject, Tracker, Emitter
@@ -11,7 +10,7 @@ class SnowplowManager:
         """
         with open('src/config.json') as config_file:
             self.defaultConfig = json.load(config_file)
-        self.companyConfig = configDict
+        self.companyConfig = config
         self.tracker = None
         self.emitter = None
         self.subject = None

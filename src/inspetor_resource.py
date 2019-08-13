@@ -3,85 +3,30 @@ import json
 import os
 import time
 import unicodedata
-from configparser import ConfigParser
 
 from src.inspetor.model.inspetor_abstract_model import InspetorAbstractModel
 from src.inspetor.inspetor_json_encoder import AbstractModelEncoder
 from src.inspetor.exception.tracker_exception import TrackerException
 
-from snowplow_tracker import logger
-from snowplow_tracker import SelfDescribingJson
-from snowplow_tracker import Subject, Tracker, Emitter
-
+from src.snowplow_manager import SnowplowManager
 
 class InspetorResource:
-    def __init__(self, configDict):
+    def __init__(self, config_dict):
         """
         Initialize service
         """
         with open('src/config.json') as config_file:
             self.defaultConfig = json.load(config_file)
-        self.companyConfig = configDict
         self.tracker = None
-        self.emitter = None
-        self.subject = None
-
+        self.snowplowManager = SnowplowManager(config_dict)
         self.verify_tracker()
 
     def verify_tracker(self):
         """Verify if tracker already exists"""
         if self.tracker is None:
-            self.setup_tracker()
+            self.tracker = self.snowplowManager.setup_tracker()
 
         return True
-
-    def setup_tracker(self):
-        """Setup an instance of a tracker"""
-        self.companyConfig = self.setup_config(self.companyConfig)
-        self.emitter = Emitter(
-            self.companyConfig["COLLECTOR_HOST"],
-            protocol = self.companyConfig["PROTOCOL"],
-            port = self.companyConfig["PORT"],
-            method = self.companyConfig["EMIT_METHOD"],
-            buffer_size = self.companyConfig["BUFFER_SIZE"]
-        )
-        self.subject = Subject()
-        self.tracker = Tracker(
-            emitters = self.emitter,
-            subject = self.subject,
-            namespace = self.companyConfig["TRACKER_NAME"],
-            app_id = self.companyConfig["APP_ID"],
-            encode_base64 = self.companyConfig["ENCODE64"]
-        )
-
-    def setup_config(self, config):
-        """Setup config with company and default config"""
-        if config['TRACKER_NAME'] is None or \
-            config['APP_ID'] is None:
-            return
-
-        keys = [
-            'COLLECTOR_HOST',
-            'PROTOCOL',
-            'EMIT_METHOD',
-            'BUFFER_SIZE',
-            'DEBUG_MODE',
-            'ENCODE64',
-            'PORT'
-        ]
-
-        for key in keys:
-            config[key] = self.defaultConfig[key]
-
-        if "DEV_ENV" in config:
-            if config["DEV_ENV"] == True:
-                config["COLLECTOR_HOST"] = self.defaultConfig["COLLECTOR_HOST_DEV"]
-
-        if "INSPETOR_ENV" in config:
-            if config["INSPETOR_ENV"] == True:
-                config["COLLECTOR_HOST"] = 'test'
-
-        return config
 
     def track_described_event(
         self,
@@ -139,7 +84,7 @@ class InspetorResource:
                 }
             ),
             [],
-            self.get_normalized_timestamp()
+            self.snowplowManager.get_normalized_timestamp()
         )
 
 
@@ -327,21 +272,3 @@ class InspetorResource:
             self.defaultConfig["INSPETOR_CONTEXT_SCHEMA"],
             action
         )
-
-    def flush(self):
-        """
-        Flush trackers
-        """
-        self.tracker.flush()
-
-    def get_normalized_timestamp(self):
-        """
-        Get correct timestamp
-        """
-        return int(time.time())*1000
-
-    def get_normalized_data(self, data):
-        """
-        Format string to replace non-ascii characters
-        """
-        return unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')

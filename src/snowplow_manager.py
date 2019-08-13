@@ -68,15 +68,3 @@ class SnowplowManager:
         Flush trackers
         """
         self.tracker.flush()
-
-    def get_normalized_timestamp(self):
-        """
-        Get correct timestamp
-        """
-        return int(time.time())*1000
-
-    def get_normalized_data(self, data):
-        """
-        Format string to replace non-ascii characters
-        """
-        return unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')

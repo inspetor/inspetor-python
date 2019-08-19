@@ -1,4 +1,3 @@
-import snowplow_tracker
 from snowplow_tracker import logger
 from snowplow_tracker import SelfDescribingJson
 from snowplow_tracker import Subject, Tracker, Emitter
@@ -11,7 +10,7 @@ class SnowplowManager:
         """
         with open('src/config.json') as config_file:
             self.defaultConfig = json.load(config_file)
-        self.companyConfig = configDict
+        self.companyConfig = config
         self.tracker = None
         self.emitter = None
         self.subject = None
@@ -69,15 +68,3 @@ class SnowplowManager:
         Flush trackers
         """
         self.tracker.flush()
-
-    def get_normalized_timestamp(self):
-        """
-        Get correct timestamp
-        """
-        return int(time.time())*1000
-
-    def get_normalized_data(self, data):
-        """
-        Format string to replace non-ascii characters
-        """
-        return unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')

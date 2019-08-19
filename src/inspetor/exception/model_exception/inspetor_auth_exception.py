@@ -16,8 +16,3 @@ class InspetorAuthException(ExceptionAbstract):
         'message': 'timestamp is a required property. It can\'t be null on creation.',
         'code'   : 7002,
     }
-
-    REQUIRED_AUTH_SUCCEEDED = {
-        'message': 'succeeded is a required property in login requests. It can\'t be null.',
-        'code'   : 7003,
-    }

@@ -1,7 +1,6 @@
 import array as arr
 import json
 import os
-import time
 import unicodedata
 
 from src.inspetor.model.inspetor_abstract_model import InspetorAbstractModel
@@ -51,21 +50,7 @@ class InspetorResource:
             self.report_non_descriptible_call(schema)
             return False
 
-        self.tracker.track_self_describing_event(
-            SelfDescribingJson(
-                schema,
-                data
-            ),
-            [
-                SelfDescribingJson(
-                    context,
-                    {
-                        'action': action
-                    }
-                ),
-            ],
-            self.get_normalized_timestamp()
-        )
+        self.snowplowManager.track_describing_event(schema, data, context, action)
 
     def report_non_descriptible_call(self, schema):
         """
@@ -76,17 +61,7 @@ class InspetorResource:
         """
         self.verify_tracker()
 
-        self.tracker.track_self_describing_event(
-            SelfDescribingJson(
-                self.defaultConfig["INGRESSE_SERIALIZATION_ERROR"],
-                {
-                    'intendedSchemaId': schema
-                }
-            ),
-            [],
-            self.snowplowManager.get_normalized_timestamp()
-        )
-
+        self.snowplowManager.track_non_describing_event(schema)
 
     def track_account_action(self, data, action):
         """
@@ -232,9 +207,6 @@ class InspetorResource:
             raise TrackerException(
                 TrackerException.INVALID_AUTH_CONTEXT
             )
-
-        if action == "account_login":
-            data.is_valid_login()
 
         data.is_valid()
 

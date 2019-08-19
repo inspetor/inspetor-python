@@ -1,10 +1,13 @@
+import json
+import snowplow_tracker
+import time
 from snowplow_tracker import logger
 from snowplow_tracker import SelfDescribingJson
 from snowplow_tracker import Subject, Tracker, Emitter
 
 
 class SnowplowManager:
-    def __init_(self, config):
+    def __init__(self, config):
         """
         Initialize service
         """
@@ -34,6 +37,8 @@ class SnowplowManager:
             encode_base64 = self.companyConfig["ENCODE64"]
         )
 
+        return self.tracker
+
     def setup_config(self, config):
         """Setup config with company and default config"""
         if config['TRACKER_NAME'] is None or \
@@ -62,6 +67,37 @@ class SnowplowManager:
                 config["COLLECTOR_HOST"] = 'test'
 
         return config
+
+    def track_describing_event(self, schema, data, context, action) :
+        """ Track describing snowplow event """
+        self.tracker.track_self_describing_event(
+                SelfDescribingJson(
+                    schema,
+                    data
+                ),
+                [
+                    SelfDescribingJson(
+                        context,
+                        {
+                            'action': action
+                        }
+                    ),
+                ],
+                self.get_normalized_timestamp()
+            )
+
+    def track_non_describing_event(self, schema) :
+        """ Track non describing snowplow event """
+        self.tracker.track_self_describing_event(
+            SelfDescribingJson(
+                self.defaultConfig["INGRESSE_SERIALIZATION_ERROR"],
+                {
+                    'intendedSchemaId': schema
+                }
+            ),
+            [],
+            self.get_normalized_timestamp()
+        )
 
     def flush(self):
         """

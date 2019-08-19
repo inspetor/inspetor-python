@@ -109,8 +109,8 @@ class DefaultModels(object):
     def get_default_auth(self):
         auth = InspetorAuth()
         auth.account_email = "test@email.com"
-        auth.succeeded = datetime.timestamp(datetime.now())
-        auth.timestamp = True
+        auth.account_id = "123"
+        auth.timestamp = datetime.timestamp(datetime.now())
 
         return auth
 

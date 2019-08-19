@@ -10,7 +10,7 @@
     "PORT": null,
     "ENCODE64": true,
     "DEBUG_MODE": false,
-    "INSPETOR_AUTH_SCHEMA": "iglu:com.inspetor/inspetor_auth_backend/jsonschema/1-0-2",
+    "INSPETOR_AUTH_SCHEMA": "iglu:com.inspetor/inspetor_auth_backend/jsonschema/1-0-3",
     "INSPETOR_PASS_RECOVERY_SCHEMA": "iglu:com.inspetor/inspetor_pass_recovery_backend/jsonschema/1-0-0",
     "INSPETOR_TRANSFER_SCHEMA": "iglu:com.inspetor/inspetor_transfer_backend/jsonschema/1-0-0",
     "INSPETOR_SALE_SCHEMA": "iglu:com.inspetor/inspetor_sale_backend/jsonschema/1-0-2",

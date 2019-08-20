@@ -21,3 +21,13 @@ class InspetorAccountException(ExceptionAbstract):
         'message': 'timestamp is a required property. It can\'t be null.',
         'code'   : 7003,
     }
+
+    REQUIRED_ACCOUNT_DOCUMENT = {
+        'message': 'document is a required property. It can\'t be null on creation.',
+        'code'   : 7004,
+    }
+
+    REQUIRED_ACCOUNT_PHONE_NUMBER = {
+        'message': 'phone_number is a required property. It can\'t be null on creation.',
+        'code'   : 7005,
+    }

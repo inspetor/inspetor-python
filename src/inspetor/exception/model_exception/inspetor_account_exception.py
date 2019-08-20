@@ -31,3 +31,8 @@ class InspetorAccountException(ExceptionAbstract):
         'message': 'phone_number is a required property. It can\'t be null on creation.',
         'code'   : 7005,
     }
+
+    REQUIRED_ACCOUNT_NAME = {
+        'message': 'name is a required property. It can\'t be null on creation.',
+        'code'   : 7006,
+    }

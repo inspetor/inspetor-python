@@ -40,6 +40,11 @@ class InspetorAccount(InspetorAbstractModel):
                 InspetorAccountException.REQUIRED_ACCOUNT_PHONE_NUMBER
             )
 
+        if self.name is None:
+            raise InspetorAccountException(
+                InspetorAccountException.REQUIRED_ACCOUNT_PHONE_NUMBER
+            )
+
     def is_valid_update(self):
         if self.id is None:
             raise InspetorAccountException(

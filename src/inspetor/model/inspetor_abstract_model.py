@@ -1,4 +1,5 @@
 import base64
+import re
 from datetime import datetime
 from src.inspetor.exception.model_exception.inspetor_general_exception import InspetorGeneralException
 
@@ -38,3 +39,9 @@ class InspetorAbstractModel(object):
             )
 
         return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S+0000')
+
+    def onlyNumbersFormat(self, data):
+        if data is not None:
+            return re.match(r'^([\d]+)$', data)
+
+        return data

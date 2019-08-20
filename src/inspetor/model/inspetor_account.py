@@ -10,6 +10,7 @@ class InspetorAccount(InspetorAbstractModel):
         self.email = None
         self.document = None
         self.phoneNumber = None
+        self.passwordHash = None
         self._address = address
         self._timestamp = timestamp
 
@@ -27,6 +28,16 @@ class InspetorAccount(InspetorAbstractModel):
         if self.timestamp is None:
             raise InspetorAccountException(
                 InspetorAccountException.REQUIRED_ACCOUNT_TIMESTAMP
+            )
+
+        if self.document is None:
+            raise InspetorAccountException(
+                InspetorAccountException.REQUIRED_ACCOUNT_DOCUMENT
+            )
+
+        if self.phoneNumber is None:
+            raise InspetorAccountException(
+                InspetorAccountException.REQUIRED_ACCOUNT_PHONE_NUMBER
             )
 
     def is_valid_update(self):
@@ -66,8 +77,8 @@ class InspetorAccount(InspetorAbstractModel):
             "account_id"          : self.encodeData(self.id),
             "account_name"        : self.encodeData(self.name),
             "account_email"       : self.encodeData(self.email),
-            "account_document"    : self.encodeData(self.document),
+            "account_document"    : self.encodeData(self.onlyNumbersFormat(self.document)),
             "account_address"     : self.encodeObject(self.address),
             "account_timestamp"   : self.encodeData(self.timestamp),
-            "account_phone_number": self.encodeData(self.phoneNumber)
+            "account_phone_number": self.encodeData(self.onlyNumbersFormat(self.phoneNumber))
         }

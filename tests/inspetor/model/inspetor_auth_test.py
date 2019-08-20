@@ -9,8 +9,8 @@ class TestInspetorAuth:
     def get_default_auth(self):
         auth = InspetorAuth()
         auth.account_email = "test@email.com"
-        auth.succeeded = datetime.timestamp(datetime.now())
-        auth.timestamp = True
+        auth.account_id = datetime.timestamp(datetime.now())
+        auth.timestamp = "123"
 
         return auth
 

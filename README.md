@@ -13,11 +13,11 @@ Inspetor is an product developed to help your company to avoid fraudulent transa
 This is the step-by-step Inspetor integration:
 
 ### PiPY
-PyPI is, in fact, the largest Python code repository we have. It's common to install python libraries with "pip install" command. That's why we did the same. To install our library, you just have to type: 
+PyPI is, in fact, the largest Python code repository we have. It's common to install python libraries with "pip install" command. That's why we did the same. To install our library, you just have to type:
 ```
 pip install inspetor
 ```
-If you get no errors, you'll be able to see the inspetor version installed using "pip freeze" command (will show every library you've installed in your environment). 
+If you get no errors, you'll be able to see the inspetor version installed using "pip freeze" command (will show every library you've installed in your environment).
 
 ### Library setup
 Now you're almost able to call our beautiful library inside your code. But, first, you need to set some **configuration**. To Inspetor avoid your fraud, you only need to provide us **three things**: *"appId"*, *"trackerName"*, *"devEnv"* like that:
@@ -73,7 +73,7 @@ from niceCompany.inspetor.inspetor_class import InspetorClass;
 class Sale:
   ...
 
-  def some_company_function(self): 
+  def some_company_function(self):
       """
       company_sale is an example object of the company with sale data
       """
@@ -85,7 +85,7 @@ class Sale:
           inspetor.get_client.track_sale_creation(inspetor_sale)
 
   def inspetor_sale_builder(self, company_sale):
-  
+
       model = inspetor.get_client.get_inspetor_sale()
 
       model.id(company_sale.get_id());
@@ -120,7 +120,7 @@ The last snipped was a simple example to show how you should call our library an
   Filling model with auth data
   """
   inspetor_auth.account_email = "test@email.com"
-  inspetor_auth.succeeded = datetime.timestamp(datetime.now())
+  inspetor_auth.account_id = datetime.timestamp(datetime.now())
   inspetor_auth.timestamp = True // True when login works
 ```
 
@@ -381,7 +381,7 @@ class InspetorClass:
     """
         inspetor_auth = self.get_client.get_inspetor_auth()
         inspetor_auth.account_email = auth_data.user_email
-        inspetor_auth.succeeded = auth_data.succeeded_login
+        inspetor_auth.account_id = auth_data.account_id_login
         inspetor_auth.timestamp = datetime.timestamp(datetime.now())
 
         return inspetor_auth

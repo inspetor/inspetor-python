@@ -25,10 +25,10 @@ class TestInspetorClient:
     def get_default_inspetor_client(self):
         inspetor = InspetorClient(
             {
-                "APP_ID":"123",
-                "TRACKER_NAME":"inspetor.python.test",
-                "DEV_ENV":False,
-                "INSPETOR_ENV":False
+                "APP_ID": "123",
+                "TRACKER_NAME": "inspetor.python.test",
+                "DEV_ENV": True,
+                "INSPETOR_ENV": False
             }
         )
         return inspetor

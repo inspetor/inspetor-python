@@ -14,7 +14,7 @@
     "INSPETOR_PASS_RECOVERY_SCHEMA": "iglu:com.inspetor/inspetor_pass_recovery_backend/jsonschema/1-0-0",
     "INSPETOR_TRANSFER_SCHEMA": "iglu:com.inspetor/inspetor_transfer_backend/jsonschema/1-0-0",
     "INSPETOR_SALE_SCHEMA": "iglu:com.inspetor/inspetor_sale_backend/jsonschema/1-0-2",
-    "INSPETOR_ACCOUNT_SCHEMA": "iglu:com.inspetor/inspetor_account_backend/jsonschema/1-0-0",
+    "INSPETOR_ACCOUNT_SCHEMA": "iglu:com.inspetor/inspetor_account_backend/jsonschema/1-0-1",
     "INSPETOR_EVENT_SCHEMA": "iglu:com.inspetor/inspetor_event_backend/jsonschema/1-0-1",
     "INSPETOR_CONTEXT_SCHEMA": "iglu:com.inspetor/inspetor_context/jsonschema/1-0-0",
     "INGRESSE_SERIALIZATION_ERROR": "iglu:com.inspetor/inspetor_serialization_error/jsonschema/1-0-0"

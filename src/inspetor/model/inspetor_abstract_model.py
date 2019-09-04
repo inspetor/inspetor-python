@@ -12,14 +12,15 @@ class InspetorAbstractModel(object):
             return None
         for item in array:
             if isObject is True:
-                encodeArray.append(self.encodeObject(item))
+                encodedArray.append(self.encodeObject(item))
             else:
-                encodeArray.append(self.encodeData(item))
+                encodedArray.append(self.encodeData(item))
         return
 
     def encodeData(self, data):
         if data is not None:
-            data = str(base64.b64encode(data.encode("utf-8")), "utf-8")
+            # We have to make data an string so we can incode a bool
+            data = str(base64.b64encode(str(data).encode("utf-8")), "utf-8")
 
         return data
 
@@ -42,6 +43,6 @@ class InspetorAbstractModel(object):
 
     def onlyNumbersFormat(self, data):
         if data is not None:
-            return re.match(r'^([\d]+)$', data)
+            return str(re.match(r'^([\d]+)$', data))
 
         return data

@@ -47,6 +47,7 @@ class InspetorResource:
         try:
             data = data.jsonSerialize()
         except Exception as encoder_fail:
+            print(Exception)
             self.report_non_descriptible_call(schema)
             return False
 

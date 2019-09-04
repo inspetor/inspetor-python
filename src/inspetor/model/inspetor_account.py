@@ -79,11 +79,12 @@ class InspetorAccount(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "account_id"          : self.encodeData(self.id),
-            "account_name"        : self.encodeData(self.name),
-            "account_email"       : self.encodeData(self.email),
-            "account_document"    : self.encodeData(self.onlyNumbersFormat(self.document)),
-            "account_address"     : self.encodeObject(self.address),
-            "account_timestamp"   : self.encodeData(self.timestamp),
-            "account_phone_number": self.encodeData(self.onlyNumbersFormat(self.phoneNumber))
+            "account_id"            : self.encodeData(self.id),
+            "account_name"          : self.encodeData(self.name),
+            "account_email"         : self.encodeData(self.email),
+            "account_document"      : self.encodeData(self.onlyNumbersFormat(self.document)),
+            "account_address"       : self.encodeObject(self.address),
+            "account_timestamp"     : self.encodeData(self.timestamp),
+            "account_phone_number"  : self.encodeData(self.onlyNumbersFormat(self.phoneNumber)),
+            "account_password_hash" : self.encodeData(self.passwordHash)
         }

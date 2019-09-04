@@ -1,5 +1,5 @@
 import base64
-import re
+import string
 from datetime import datetime
 from src.inspetor.exception.model_exception.inspetor_general_exception import InspetorGeneralException
 
@@ -7,15 +7,15 @@ from src.inspetor.exception.model_exception.inspetor_general_exception import In
 class InspetorAbstractModel(object):
 
     def encode_array(self, array, isObject):
-        encodedArray = []
+        encoded_array = []
         if array is None:
             return None
         for item in array:
             if isObject is True:
-                encodedArray.append(self.encodeObject(item))
+                encoded_array.append(self.encodeObject(item))
             else:
-                encodedArray.append(self.encode_data(item))
-        return
+                encoded_array.append(self.encode_data(item))
+        return encoded_array
 
     def encode_data(self, data):
         if data is not None:
@@ -41,8 +41,11 @@ class InspetorAbstractModel(object):
 
         return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S+0000')
 
-    def only_numbers_format(self, data):
+    # You can find this code here: https://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string
+    def remove_punctuation(self, data):
         if data is not None:
-            return str(re.match(r'^([\d]+)$', data))
-
-        return data
+            data_as_string = str(data)
+            data_without_punctuation = data_as_string.translate(str.maketrans("", "", string.punctuation))
+            return data_without_punctuation.replace(" ", "")
+        
+        return None

@@ -82,9 +82,9 @@ class InspetorAccount(InspetorAbstractModel):
             "account_id"            : self.encode_data(self.id),
             "account_name"          : self.encode_data(self.name),
             "account_email"         : self.encode_data(self.email),
-            "account_document"      : self.encode_data(self.only_numbers_format(self.document)),
+            "account_document"      : self.encode_data(self.remove_punctuation(self.document)),
             "account_address"       : self.encodeObject(self.address),
             "account_timestamp"     : self.encode_data(self.timestamp),
-            "account_phone_number"  : self.encode_data(self.only_numbers_format(self.phoneNumber)),
+            "account_phone_number"  : self.encode_data(self.remove_punctuation(self.phoneNumber)),
             "account_password_hash" : self.encode_data(self.passwordHash)
         }

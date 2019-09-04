@@ -68,10 +68,10 @@ class InspetorItem(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "item_id"            : self.encodeData(self.id),
-            "item_event_id"      : self.encodeData(self.event_id),
-            "item_session_id"    : self.encodeData(self.session_id),
-            "item_price"         : self.encodeData(self.price),
-			"item_seating_option": self.encodeData(self.seating_option),
-			"item_quantity"      : self.encodeData(self.quantity)
+            "item_id"            : self.encode_data(self.id),
+            "item_event_id"      : self.encode_data(self.event_id),
+            "item_session_id"    : self.encode_data(self.session_id),
+            "item_price"         : self.encode_data(self.price),
+			"item_seating_option": self.encode_data(self.seating_option),
+			"item_quantity"      : self.encode_data(self.quantity)
         }

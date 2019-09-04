@@ -20,6 +20,6 @@ class InspetorCategory(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "category_id"  : self.encodeData(self.id),
-            "category_name": self.encodeData(self.name)
+            "category_id"  : self.encode_data(self.id),
+            "category_name": self.encode_data(self.name)
         }

@@ -25,10 +25,10 @@ class InspetorPassRecovery(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     def jsonSerialize(self):
         return {
-            "pass_recovery_email"    : self.encodeData(self.recovery_email),
-            "pass_recovery_timestamp": self.encodeData(self.timestamp)
+            "pass_recovery_email"    : self.encode_data(self.recovery_email),
+            "pass_recovery_timestamp": self.encode_data(self.timestamp)
         }

@@ -77,9 +77,9 @@ class InspetorPayment(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "payment_instance_id"              : self.encodeData(self.id),
-            "payment_instance_method"          : self.encodeData(self.method),
-            "payment_instance_installments"    : self.encodeData(self.installments),
+            "payment_instance_id"              : self.encode_data(self.id),
+            "payment_instance_method"          : self.encode_data(self.method),
+            "payment_instance_installments"    : self.encode_data(self.installments),
             "payment_instance_credit_card_info": self.encodeObject(self.credit_card)
         }
 

@@ -5,18 +5,18 @@ from src.inspetor.exception.model_exception.inspetor_general_exception import In
 
 class InspetorAbstractModel(object):
 
-    def encodeArray(self, array, isObject):
+    def encode_array(self, array, isObject):
         encodedArray = []
         if array is None:
             return None
         for item in array:
             if isObject is True:
-                encodeArray.append(self.encodeObject(item))
+                encode_array.append(self.encodeObject(item))
             else:
-                encodeArray.append(self.encodeData(item))
+                encode_array.append(self.encode_data(item))
         return
 
-    def encodeData(self, data):
+    def encode_data(self, data):
         if data is not None:
             data = str(base64.b64encode(data.encode("utf-8")), "utf-8")
 
@@ -28,7 +28,7 @@ class InspetorAbstractModel(object):
 
         return object
 
-    def inspetorDateFormatter(self, timestamp):
+    def inspetor_date_formatter(self, timestamp):
         if timestamp is None:
             return None
 

@@ -131,18 +131,18 @@ class InspetorSale(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     def jsonSerialize(self):
         return {
-            "sale_id"               : self.encodeData(self.id),
-            "sale_account_id"       : self.encodeData(self.account_id),
-            "sale_total_value"      : self.encodeData(self.total_value),
-            "sale_status"           : self.encodeData(self.status),
-            "sale_is_fraud"         : self.encodeData(self.is_fraud),
-            "sale_analyzed_by"      : self.encodeData(self.analyzed_by),
-            "sale_timestamp"  		: self.encodeData(self._timestamp),
-            "sale_items"            : self.encodeArray(self._items, True),
+            "sale_id"               : self.encode_data(self.id),
+            "sale_account_id"       : self.encode_data(self.account_id),
+            "sale_total_value"      : self.encode_data(self.total_value),
+            "sale_status"           : self.encode_data(self.status),
+            "sale_is_fraud"         : self.encode_data(self.is_fraud),
+            "sale_analyzed_by"      : self.encode_data(self.analyzed_by),
+            "sale_timestamp"  		: self.encode_data(self._timestamp),
+            "sale_items"            : self.encode_array(self._items, True),
             "sale_payment_instance" : self.encodeObject(self._payment)
         }
 

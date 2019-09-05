@@ -6,9 +6,9 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="inspetor",
     version="0.0.3",
-    author="Theo Sato",
-    author_email="theo@useinspetor.com",
-    description="Antrifraud Inspetor library for Python.",
+    author="Inspetor Dev Team",
+    author_email="dev@useinspetor.com",
+    description="Inspetor Antrifraud library for Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pypa/sampleproject",

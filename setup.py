@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.3",
     author="Inspetor Dev Team",
     author_email="dev@useinspetor.com",
-    description="Inspetor Antrifraud library for Python.",
+    description="Inspetor Antifraud library for Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pypa/sampleproject",

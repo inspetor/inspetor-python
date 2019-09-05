@@ -12,7 +12,7 @@ This README file should help you to integrate the Inspetor Python library into y
 ## Setup Guide
 This is the step-by-step Inspetor integration:
 
-### PiPY
+### PyPI
 PyPI is, in fact, the largest Python code repository we have. It's common to install python libraries with "pip install" command. To install our library, you need to use the following command:
 ```
 pip install inspetor

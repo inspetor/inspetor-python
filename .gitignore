@@ -51,6 +51,15 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# IDEs
+.vscode/
+.idea/*
+.classpath
+.settings/
+.project
+.pydevproject
+/bin/
+
 # Translations
 *.mo
 *.pot

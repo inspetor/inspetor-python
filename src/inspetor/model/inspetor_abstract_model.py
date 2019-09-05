@@ -1,25 +1,26 @@
 import base64
-import re
+import string
 from datetime import datetime
 from src.inspetor.exception.model_exception.inspetor_general_exception import InspetorGeneralException
 
 
 class InspetorAbstractModel(object):
 
-    def encodeArray(self, array, isObject):
-        encodedArray = []
+    def encode_array(self, array, isObject):
+        encoded_array = []
         if array is None:
             return None
         for item in array:
             if isObject is True:
-                encodeArray.append(self.encodeObject(item))
+                encoded_array.append(self.encodeObject(item))
             else:
-                encodeArray.append(self.encodeData(item))
-        return
+                encoded_array.append(self.encode_data(item))
+        return encoded_array
 
-    def encodeData(self, data):
+    def encode_data(self, data):
         if data is not None:
-            data = str(base64.b64encode(data.encode("utf-8")), "utf-8")
+            # We have to make data an string so we can incode a bool
+            data = str(base64.b64encode(str(data).encode("utf-8")), "utf-8")
 
         return data
 
@@ -29,7 +30,7 @@ class InspetorAbstractModel(object):
 
         return object
 
-    def inspetorDateFormatter(self, timestamp):
+    def inspetor_date_formatter(self, timestamp):
         if timestamp is None:
             return None
 
@@ -40,8 +41,11 @@ class InspetorAbstractModel(object):
 
         return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S+0000')
 
-    def onlyNumbersFormat(self, data):
+    # You can find this code here: https://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string
+    def remove_punctuation(self, data):
         if data is not None:
-            return re.match(r'^([\d]+)$', data)
-
-        return data
+            data_as_string = str(data)
+            data_without_punctuation = data_as_string.translate(str.maketrans("", "", string.punctuation))
+            return data_without_punctuation.replace(" ", "")
+        
+        return None

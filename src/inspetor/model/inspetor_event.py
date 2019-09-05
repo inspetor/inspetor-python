@@ -109,7 +109,7 @@ class InspetorEvent(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     #To understand this part, please read https://bit.ly/2ywz8PN
     @property
@@ -165,18 +165,18 @@ class InspetorEvent(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "event_id"              : self.encodeData(self.id),
-            "event_name"            : self.encodeData(self.name),
-            "event_description"     : self.encodeData(self.description),
-            "event_timestamp"  		: self.encodeData(self.timestamp),
-            "event_sessions"        : self.encodeArray(self.sessions, True),
-            "event_status"          : self.encodeData(self.status),
-			"event_status_other"    : self.encodeData(self.status_other),
-			"event_seating_options" : self.encodeArray(self.seating_options, False),
-            "event_categories"      : self.encodeArray(self.categories, True),
+            "event_id"              : self.encode_data(self.id),
+            "event_name"            : self.encode_data(self.name),
+            "event_description"     : self.encode_data(self.description),
+            "event_timestamp"  		: self.encode_data(self.timestamp),
+            "event_sessions"        : self.encode_array(self.sessions, True),
+            "event_status"          : self.encode_data(self.status),
+			"event_status_other"    : self.encode_data(self.status_other),
+			"event_seating_options" : self.encode_array(self.seating_options, False),
+            "event_categories"      : self.encode_array(self.categories, True),
             "event_address"         : self.encodeObject(self.address),
-            "event_slug"            : self.encodeData(self.slug),
-            "event_creator_id"      : self.encodeData(self.creator_id),
-			"event_admins_id"       : self.encodeArray(self.admins_id, False),
-			"event_is_physical"		: self.encodeData(self.is_physical)
+            "event_slug"            : self.encode_data(self.slug),
+            "event_creator_id"      : self.encode_data(self.creator_id),
+			"event_admins_id"       : self.encode_array(self.admins_id, False),
+			"event_is_physical"		: self.encode_data(self.is_physical)
         }

@@ -72,16 +72,16 @@ class InspetorTransfer(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     def jsonSerialize(self):
         return {
-            "transfer_id"               : self.encodeData(self.id),
-            "transfer_timestamp" 		: self.encodeData(self.timestamp),
-            "transfer_item_id"          : self.encodeData(self.item_id),
-            "transfer_sender_account_id": self.encodeData(self.sender_account_id),
-            "transfer_receiver_email"   : self.encodeData(self.receiver_email),
-            "transfer_status"           : self.encodeData(self.status)
+            "transfer_id"               : self.encode_data(self.id),
+            "transfer_timestamp" 		: self.encode_data(self.timestamp),
+            "transfer_item_id"          : self.encode_data(self.item_id),
+            "transfer_sender_account_id": self.encode_data(self.sender_account_id),
+            "transfer_receiver_email"   : self.encode_data(self.receiver_email),
+            "transfer_status"           : self.encode_data(self.status)
         }
 
 

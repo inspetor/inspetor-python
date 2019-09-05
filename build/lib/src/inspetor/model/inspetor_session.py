@@ -24,10 +24,10 @@ class InspetorSession(InspetorAbstractModel):
 
     @datetime.setter
     def datetime(self, datetime):
-        self._datetime = self.inspetorDateFormatter(datetime)
+        self._datetime = self.inspetor_date_formatter(datetime)
 
     def jsonSerialize(self):
         return {
-            "session_id"        : self.encodeData(self.id),
-            "session_timestamp" : self.encodeData(self.datetime)
+            "session_id"        : self.encode_data(self.id),
+            "session_timestamp" : self.encode_data(self.datetime)
         }

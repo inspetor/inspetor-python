@@ -40,12 +40,12 @@ class InspetorAddress(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "address_street"   : self.encodeData(self.street),
-            "address_number"   : self.encodeData(self.number),
-            "address_zip_code" : self.encodeData(self.zip_code),
-            "address_city"     : self.encodeData(self.city),
-            "address_state"    : self.encodeData(self.state),
-            "address_country"  : self.encodeData(self.country),
-            "address_latitude" : self.encodeData(self.latitude),
-            "address_longitude": self.encodeData(self.longitude)
+            "address_street"   : self.encode_data(self.street),
+            "address_number"   : self.encode_data(self.number),
+            "address_zip_code" : self.encode_data(self.zip_code),
+            "address_city"     : self.encode_data(self.city),
+            "address_state"    : self.encode_data(self.state),
+            "address_country"  : self.encode_data(self.country),
+            "address_latitude" : self.encode_data(self.latitude),
+            "address_longitude": self.encode_data(self.longitude)
         }

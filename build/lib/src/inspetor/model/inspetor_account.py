@@ -59,15 +59,15 @@ class InspetorAccount(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     def jsonSerialize(self):
         return {
-            "account_id"          : self.encodeData(self.id),
-            "account_name"        : self.encodeData(self.name),
-            "account_email"       : self.encodeData(self.email),
-            "account_document"    : self.encodeData(self.document),
+            "account_id"          : self.encode_data(self.id),
+            "account_name"        : self.encode_data(self.name),
+            "account_email"       : self.encode_data(self.email),
+            "account_document"    : self.encode_data(self.document),
             "account_address"     : self.encodeObject(self.address),
-            "account_timestamp"   : self.encodeData(self.timestamp),
-            "account_phone_number": self.encodeData(self.phoneNumber)
+            "account_timestamp"   : self.encode_data(self.timestamp),
+            "account_phone_number": self.encode_data(self.phoneNumber)
         }

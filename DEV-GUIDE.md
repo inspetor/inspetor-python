@@ -18,20 +18,20 @@ Well, you should clone this repo:
 ```
 git clone https://github.com/inspetor/inspetor-python.git
 ```
-And when it's done, you can start to code. Every useful information to the development of this library can be found [here](https://github.com/inspetor/inspetor-python/blob/master/README.md), general information about Inspetor [here](https://inspetor.github.io/slate/) and [here](https://github.io/inspetor/libraries) are some libraries definitions (swagger).
+And when it's done, you can start to code. Every useful information to the development of this library can be found [here](https://github.com/inspetor/inspetor-python/blob/master/README.md), general information about Inspetor [here](https://inspetor.github.io/docs-backend/) and [here](https://github.com/inspetor/libraries) are some libraries definitions (swagger).
 
 ### TEST YOUR STUFF!
 After finishing your code, it's simple to test:
 Locally: 
 ```
-python -m pytests tests/inspetor/model
-python -m pytests tests/inspetor/tracker
+python -m pytest tests/inspetor/model
+python -m pytest tests/inspetor/tracker
 ```
 Integration tests: 
 ```
-python -m pytests tests/inspetor/integration
+python -m pytest tests/inspetor/integration
 ```
-P.S.: you'll need pytests installed in your machine/virtualenv. 
+P.S.: you'll need pytest installed in your machine/virtualenv. 
 
 ### Publishing
 Are you done? Nice! It's time to publish. If you had finished a new brilliant version, you must create a **release** to that version.

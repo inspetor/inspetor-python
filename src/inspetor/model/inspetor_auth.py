@@ -25,11 +25,11 @@ class InspetorAuth(InspetorAbstractModel):
 
     @timestamp.setter
     def timestamp(self, timestamp):
-        self._timestamp = self.inspetorDateFormatter(timestamp)
+        self._timestamp = self.inspetor_date_formatter(timestamp)
 
     def jsonSerialize(self):
         return {
-            "auth_account_email" : self.encodeData(self.account_email),
-            "auth_timestamp"     : self.encodeData(self.timestamp),
-            "auth_account_id"     : self.encodeData(self.account_id)
+            "auth_account_email" : self.encode_data(self.account_email),
+            "auth_timestamp"     : self.encode_data(self.timestamp),
+            "auth_account_id"     : self.encode_data(self.account_id)
         }

@@ -50,9 +50,9 @@ class InspetorCreditCard(InspetorAbstractModel):
 
     def jsonSerialize(self):
         return {
-            "cc_first_six"      : self.encodeData(self.first_six_digits),
-            "cc_last_four"      : self.encodeData(self.last_four_digits),
-            "cc_holder_name"    : self.encodeData(self.holder_name),
-            "cc_holder_cpf"     : self.encodeData(self.holder_cpf),
+            "cc_first_six"      : self.encode_data(self.first_six_digits),
+            "cc_last_four"      : self.encode_data(self.last_four_digits),
+            "cc_holder_name"    : self.encode_data(self.holder_name),
+            "cc_holder_cpf"     : self.encode_data(self.holder_cpf),
             "cc_billing_address": self.encodeObject(self.billing_address)
         }

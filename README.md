@@ -20,7 +20,7 @@ pip install inspetor
 If you get no errors, you'll be able to see the Inspetor version installed using the "pip freeze" command (which will show every library you've installed in your environment). 
 
 ### Library setup
-Now, you're almost able to call the library from inside your code. But first, you need to set some **configuration** values (app id, tracker name and dev env):
+Now, you're almost able to call the library from inside your code. But first, you need to set some **configuration** values (app id, tracker name, and dev env):
 ```
     inspetor_config = {
         "APP_ID": "123",
@@ -29,7 +29,7 @@ Now, you're almost able to call the library from inside your code. But first, yo
     }
 ```
 
-The ***APP_ID*** is an unique identifier that the Inspetor Team will provide you when you start the paid integration with us. The ***TRACKER_NAME*** is a name that will help us find your data in our database and we'll provide you a couple of them. Lastly, ***DEV_ENV*** is a boolean statement that you set to inform if you want to use the develoment or production environment. It's false by default. 
+The ***APP_ID*** is an nique identifier that the Inspetor Team will provide you when you start the paid integration with us. The ***TRACKER_NAME*** is a name that will help us find your data in our database and we'll provide you a couple of them. Lastly, ***DEV_ENV*** is a boolean statement that you set to inform if you want to use the development or production environment. It's false by default. 
 
 We **strongly** recommend you to create an Inspetor class in your code to start our library. That's where you're going to insert the Inspetor config you wrote and, with that, retrieve our client. Confusing? Relax, we're kind enough to show you how to do it.
 
@@ -61,7 +61,7 @@ Now, wherever you need to call some Inspetor function, you just need to import t
 
 If you've already read the [general Inspetor documentation](https://inspetor.github.io/docs-backend/#introduction), you should be aware of all of Inspetor requests and trackers, so our intention here is just to show you how to use the Python version of some of them.
 
-Let's imagine that you want to put a tracker in your *"create transaction"* flow to send data to Inspetor. First you need to create an `InspetorSale` object (you can find more about Inspetor objects [here](https://inspetor.github.io/docs-backend/#models)) and then pass this object as an argument to the function `track_inspetor_sale_creation`.
+Let's imagine that you want to put a tracker in your *"create transaction"* flow to send data to Inspetor. First, you need to create an `InspetorSale` object (you can find more about Inspetor objects [here](https://inspetor.github.io/docs-backend/#models)) and then pass this object as an argument to the function `track_inspetor_sale_creation`.
 
 Here is the snippet of the example above:
 
@@ -99,7 +99,7 @@ class Sale:
 
 Following this code and assuming you've built your model with all the required parameters (find out each Model's required parameters [here](https://inspetor.github.io/docs-backend/#models)), whenever `some_company_function` runs, the Inspetor code inside will send the information about the transaction to Inspetor.
 
-We're using an auxiliar function `inspetor_sale_builder` to build the *Sale Model object* but you could do it in a different way and place it where it suits your needs better. You could set this `inspetor_sale_builder` inside your `InspetorClass` that we talked about some lines above, for example. There are some more tips in the [Best Practices & Tips](#best-practices-&-tips) section.
+We're using an auxiliary function `inspetor_sale_builder` to build the *Sale Model object* but you could do it differently and place it where it suits your needs better. You could set this `inspetor_sale_builder` inside your `InspetorClass` that we talked about some lines above, for example. There are some more tips in the [Best Practices & Tips](#best-practices-&-tips) section.
 
 ### Models
 
@@ -122,7 +122,7 @@ The last snippet was a simple example to show how you should call our library an
   inspetor_auth.timestamp = True  # True when login works
 ```
 
-- **Account**: model you fill with your ***user*** data. Account has `address` and `billing_address` as two non required values and both are built with an object of the `InspetorAddress` Model type.
+- **Account**: model you fill with your ***user*** data. Account has `address` and `billing_address` as two non-required values and both are built with an object of the `InspetorAddress` Model type.
 ```
   """
   Calling an instance of Model
@@ -271,7 +271,7 @@ The last snippet was a simple example to show how you should call our library an
   credit_card.billing_address = inspetor_billing_address
 ```
 
-- **Item**: when someone buys a ***ticket*** for instance, this Model will be instantiate and filled with that ticket data.
+- **Item**: when someone buys a ***ticket***, for instance, this Model will be instantiated and filled with that ticket data.
 ```
   """
   Calling an instance of Model
@@ -337,22 +337,22 @@ The last snippet was a simple example to show how you should call our library an
 ```
 
 ### What you should notice
-Not all of the Model's attributes are required but we trully recommend you work around to pass them all. On the other hand, some of them are **super important** and you should pass it correctly. Let's talk about some of them.
+Not all of the Model's attributes are required but we deeply recommend you try to pass them all. On the other hand, some of them are **super important** and you should pass it correctly. Let's talk about some of them.
  - Sale:
    - ***is_fraud***: it's an attribute that you **must** pass to indicate if a sale is fraudulent or not, even if it's something that we're providing to you (as part of postback process).
  - Event:
-   - ***sessions***: it's an attribute that you **must** pass even if you don't use the sessions context. If that is the case, you just need to replicate some of your Event attributes, such as *event_id* and *event_date*, for example.
+   - ***sessions***: it's an attribute that you **must** pass even if you don't use the session's context. If that is the case, you just need to replicate some of your Event attributes, such as *event_id* and *event_date*, for example.
  - Address:
    - ***almost all fields***: address is **only required** when you try to track an Event, but exists in the Account model as well. 
  - CreditCard:
    - ***all fields***: all of them are requested if you set the `payment_method` as "credit_card", so pay attention to that.
  - Common requests:
-   - ***timestamp***: some Models have setters and getters to timestamp as you can see in the general files, and you must provide us a UTC unix timestamp.
+   - ***timestamp***: some Models have setters and getters for this, as you can see in the general files, and you must provide us a UTC Unix timestamp.
 
 ### Best Practices & Tips
-In this part we decided to share some nice practices we've discovered during development time and should help you with a cleaner integration.
+In this part, we decided to share some nice practices we've discovered during development time and should help you with a cleaner integration.
 
-  - **InspetorClass**: we already told you about that but we think it's important for a cleaner integration. With this class, you don't need to pass your config everytime and it creates a layer between our application and yours, where you can, for instance, create funcions as *model builders* (we've already talked about that too) to keep all builders in one place. Here's a snippet of an `InspetorClass` with an example of *builder*.
+  - **InspetorClass**: we already told you about that but we think it's important for a cleaner integration. With this class, you don't need to pass your config every time and it creates a layer between our application and yours, where you can, for instance, create functions as *model builders* (we've already talked about that too) to keep all builders in one place. Here's a snippet of an `InspetorClass` with an example of *builder*.
 ```
 import inspetor
 
@@ -385,7 +385,7 @@ class InspetorClass:
 ```
 
 ### Conclusion
-WOW! It was lovely to work with you, my friend. We trully hope that our instructions were clear and effective. If you have any suggestions or find any bugs please feel free to contact us [here](mailto:dev@useinspetor.com).
+WOW! It was lovely to work with you, my friend. We truly hope that our instructions were clear and effective. If you have any suggestions or find any bugs please feel free to contact us [here](mailto:dev@useinspetor.com).
 
 Now you're invited to join our army against fraud 'cause ***STEALING IS BULLSHIT***!
 

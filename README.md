@@ -118,8 +118,8 @@ The last snippet was a simple example to show how you should call our library an
   Filling model with auth data
   """
   inspetor_auth.account_email = "test@email.com"
-  inspetor_auth.account_id = datetime.timestamp(datetime.now())
-  inspetor_auth.timestamp = True  # True when login works
+  inspetor_auth.account_id = "123"  # you need only to pass the account_id if the login is successful
+  inspetor_auth.timestamp = datetime.timestamp(datetime.now())
 ```
 
 - **Account**: model you fill with your ***user*** data. Account has `address` and `billing_address` as two non-required values and both are built with an object of the `InspetorAddress` Model type.
@@ -158,7 +158,7 @@ The last snippet was a simple example to show how you should call our library an
       inspetor_event_session1,
       inspetor_event_session1
   ]
-  inspetor_event.status = "private"
+  inspetor_event.status = inspetor_event.PRIVATE_STATUS
   inspetor_event.slug = "slug-test"
   inspetor_event.creator_id = "124"
   inspetor_event.is_physical = True
@@ -186,12 +186,12 @@ The last snippet was a simple example to show how you should call our library an
   inspetor_pass.timestamp = datetime.timestamp(datetime.now())
 ```
 
-- **Sale**: model that should be filled with ***sale*** data. The sale status has a fixed list of allowed values:
-  - "accepted"
-  - "rejected"
-  - "pending"
-  - "refunded"
-  - "manual_analysis"
+- **Sale**: model that should be filled with ***sale*** data. The sale status has a fixed list of allowed values :
+  - "accepted" but you can use the Sale const like `Sale.ACCEPTED_STATUS`
+  - "rejected" but you can use the Sale const like `Sale.REJECTED_STATUS`
+  - "pending" but you can use the Sale const like `Sale.PENDING_STATUS`
+  - "refunded" but you can use the Sale const like `Sale.REFUNDED_STATUS`
+  - "manual_analysis" but you can use the Sale const like `Sale.MANUAL_ANALYSIS_STATUS`
 ```
 
   """
@@ -205,7 +205,7 @@ The last snippet was a simple example to show how you should call our library an
   inspetor_sale.id = "123"
   inspetor_sale.account_id = "456"
   inspetor_sale.total_value = "123,00"
-  inspetor_sale.status = "pending"
+  inspetor_sale.status = inspetor_sale.PENDING_STATUS
   inspetor_sale.timestamp = datetime.timestamp(datetime.now())
   inspetor_sale.items = [
       self.get_default_item()
@@ -214,9 +214,9 @@ The last snippet was a simple example to show how you should call our library an
 ```
 
 - **Transfer**: model you fill with the ***transference*** data of an item (e.g. transfer of a ticket). The transfer status has fixed allowed values:
-  - "accepted"
-  - "rejected"
-  - "pending"
+  - "accepted" but you can use the Transfer const like `Transfer.ACCEPTED_STATUS`
+  - "rejected" but you can use the Transfer const like `Transfer.REJECTED_STATUS`
+  - "pending" but you can use the Transfer const like `Transfer.PENDING_STATUS`
 ```
   """
   Calling an instance of Model
@@ -226,12 +226,12 @@ The last snippet was a simple example to show how you should call our library an
   """
   Filling model with transfer data
   """
-  transfer.id = "123"
-  transfer.timestamp = datetime.timestamp(datetime.now())
-  transfer.item_id = "123"
-  transfer.sender_account_id = "123"
-  transfer.receiver_email = "test@email.com"
-  transfer.status = "pending"
+  inspetor_transfer.id = "123"
+  inspetor_transfer.timestamp = datetime.timestamp(datetime.now())
+  inspetor_transfer.item_id = "123"
+  inspetor_transfer.sender_account_id = "123"
+  inspetor_transfer.receiver_email = "test@email.com"
+  inspetor_transfer.status = inspetor_transfer.PENDING_STATUS 
 ```
 
 ***Auxiliar models***:
@@ -290,9 +290,9 @@ The last snippet was a simple example to show how you should call our library an
 ```
 
 - **Payment**: this Model holds the ***transaction*** data (e.g. payment method or installments). The payment status has fixed allowed values:
-  - "credit_card" but you can use the Payment const like Payment.CREDIT_CARD
-  - "boleto" but you can use the Payment const like Payment.BOLETO
-  - "other" but you can use the Payment const like Payment.OTHER_METHOD
+  - "credit_card" but you can use the Payment const like `Payment.CREDIT_CARD`
+  - "boleto" but you can use the Payment const like `Payment.BOLETO`
+  - "other" but you can use the Payment const like `Payment.OTHER_METHOD`
 ```
   """
   Calling an instance of Model
@@ -302,10 +302,10 @@ The last snippet was a simple example to show how you should call our library an
   """
   Filling model with payment data
   """
-  payment.id = "123"
-  payment.method = "credit_card"
-  payment.installments = "1"
-  payment.credit_card = inspetor_credit_card
+  inspetor_payment.id = "123"
+  inspetor_payment.method = inspetor_payment.CREDIT_CARD
+  inspetor_payment.installments = "1"
+  inspetor_payment.credit_card = inspetor_credit_card
 ```
 
  - **Session**: model you fill with ***event date session*** data.
@@ -332,8 +332,8 @@ The last snippet was a simple example to show how you should call our library an
   """
   Filling model with category data
   """
-  category.id = "123"
-  category.name = "Cooltegory"
+  inspetor_category.id = "123"
+  inspetor_category.name = "Cooltegory"
 ```
 
 ### What you should notice

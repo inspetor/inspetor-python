@@ -3,6 +3,11 @@ from src.inspetor.exception.model_exception.inspetor_credit_card_exception impor
 
 
 class InspetorCreditCard(InspetorAbstractModel):
+
+    CREDIT_CARD  = "credit_card"
+    BOLETO       = "boleto"
+    OTHER_METHOD = "other"
+
     def __init__(self):
         self.first_six_digits = None
         self.last_four_digits = None

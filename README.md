@@ -29,7 +29,7 @@ Now, you're almost able to call the library from inside your code. But first, yo
     }
 ```
 
-The ***APP_ID*** is an nique identifier that the Inspetor Team will provide you when you start the paid integration with us. The ***TRACKER_NAME*** is a name that will help us find your data in our database and we'll provide you a couple of them. Lastly, ***DEV_ENV*** is a boolean statement that you set to inform if you want to use the development or production environment. It's false by default. 
+The ***APP_ID*** is a unique identifier that the Inspetor Team will provide you when you start the paid integration with us. The ***TRACKER_NAME*** is a name that will help us find your data in our database and we'll provide you a couple of them. Lastly, ***DEV_ENV*** is a boolean statement that you set to inform if you want to use the development or production environment. It's false by default. 
 
 We **strongly** recommend you to create an Inspetor class in your code to start our library. That's where you're going to insert the Inspetor config you wrote and, with that, retrieve our client. Confusing? Relax, we're kind enough to show you how to do it.
 

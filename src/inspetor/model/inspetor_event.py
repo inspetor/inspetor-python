@@ -3,6 +3,12 @@ from src.inspetor.exception.model_exception.inspetor_event_exception import Insp
 
 
 class InspetorEvent(InspetorAbstractModel):
+
+    DRAFT_STATUS     = "draft"
+    PRIVATE_STATUS   = "private"
+    PUBLISHED_STATUS = "published"
+    OTHER_STATUS     = "other"
+
     def __init__(self, categories = None, address = None,
         admins_id = None, seating_options = None, timestamp = None):
         self.id = None

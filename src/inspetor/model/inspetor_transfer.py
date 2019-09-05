@@ -3,6 +3,11 @@ from src.inspetor.exception.model_exception.inspetor_transfer_exception import I
 
 
 class InspetorTransfer(InspetorAbstractModel):
+
+    ACCEPTED_STATUS = "accepted"
+    REJECTED_STATUS = "rejected"
+    PENDING_STATUS  = "pending"
+
     def __init__(self, timestamp = None):
         self.id = None
         self.item_id = None

@@ -4,6 +4,13 @@ from src.inspetor.exception.model_exception.inspetor_sale_exception import Inspe
 
 
 class InspetorSale(InspetorAbstractModel):
+
+    ACCEPTED_STATUS        = "accepted"
+    DECLINED_STATUS        = "declined"
+    PENDING_STATUS         = "pending"
+    REFUNDED_STATUS        = "refunded"
+    MANUAL_ANALYSIS_STATUS = "manual_analysis"
+
     def __init__(self, timestamp = None, items = None, payment = None):
         self.id = None
         self.account_id = None

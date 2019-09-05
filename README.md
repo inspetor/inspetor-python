@@ -13,7 +13,7 @@ This README file should help you to integrate the Inspetor Python library into y
 This is the step-by-step Inspetor integration:
 
 ### PyPI
-PyPI is, in fact, the largest Python code repository we have. It's common to install python libraries with "pip install" command. To install our library, you need to use the following command:
+PyPI is, in fact, the largest Python code repository there is. It's common to install python libraries with the "pip install" command. To install our library, you need to use the following command:
 ```
 pip install inspetor
 ```
@@ -42,7 +42,7 @@ class InspetorClass:
         """
         Let's instantiate the library!
         """
-        self.inspetor = InspetorClient(inspetor_config)
+        self.inspetor = inspetor.InspetorClient(inspetor_config)
 
     def get_client(self):
         """
@@ -76,7 +76,7 @@ class Sale:
       """
       inspetor_sale = self.inspetorSaleBuilder(company_sale)
 
-      self.inspetor = InspetorClass
+      self.inspetor = InspetorClass()
 
       if inspetor_sale is not None:
           inspetor.get_client.track_sale_creation(inspetor_sale)

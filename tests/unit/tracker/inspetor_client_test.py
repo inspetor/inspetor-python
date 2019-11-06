@@ -2,7 +2,7 @@ from datetime import datetime
 import pytest
 
 from src.inspetor_client import InspetorClient
-from tests.inspetor.tracker.default_models import DefaultModels
+from tests.resources.default_models import DefaultModels
 from src.inspetor.model.inspetor_account import InspetorAccount
 from src.inspetor.model.inspetor_address import InspetorAddress
 from src.inspetor.model.inspetor_category import InspetorCategory

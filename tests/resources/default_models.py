@@ -24,9 +24,7 @@ class DefaultModels(object):
         sale.total_value = "123,00"
         sale.status = "pending"
         sale.timestamp = datetime.timestamp(datetime.now())
-        sale.items = [
-            self.get_default_item()
-        ]
+        sale.items = [self.get_default_item()]
         sale._payment = self.get_default_payment()
 
         return sale
@@ -162,7 +160,7 @@ class DefaultModels(object):
         item = InspetorItem()
         item.id = "123"
         item.event_id = "123"
-        item.session_id = ["123"]
+        item.session_ids = ["123"]
         item.seating_option = "Seating Option Test"
         item.price = "10"
         item.quantity = "123"

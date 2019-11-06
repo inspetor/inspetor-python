@@ -4,37 +4,35 @@
 </p>
 
 # Inspetor Antifraud
-Antrifraud Inspetor library for Python. 
-
-## Description
-This READ ME file is special! It should help you, my dear developer, on your "*publishing library road*". Let's chat about library development and publishing new versions 'cause the war against fraud never ends.
-
-## Setup Guide
-This is a step-by-step Inspetor publication guide:
+Developer README for the Inspetor Python SDK. Contains dev setup information and publication instructions.
 
 ### Development
-Ok, so you decided to make changes in this beautiful library. No worries, I appreciate that.
-Well, you should clone this repo:
+Requirements:
+- Python (3.7.4)
+- pip (19.3.1)
+
+First step:
 ```
-git clone https://github.com/inspetor/inspetor-python.git
+git clone https://github.com/inspetor/inspetor-python.git && cd inspetor-python
 ```
-And when it's done, you can start to code. Every useful information to the development of this library can be found [here](https://github.com/inspetor/inspetor-python/blob/master/README.md), general information about Inspetor [here](https://inspetor.github.io/docs-backend/) and [here](https://github.com/inspetor/libraries) are some libraries definitions (swagger).
+Install dependencies:
+```
+pip install -r requirements.txt
+```
 
 ### TEST YOUR STUFF!
-After finishing your code, it's simple to test:
-Locally: 
+After finishing your changes, it's simple to test:
+Unit tests: 
 ```
-python -m pytest tests/inspetor/model
-python -m pytest tests/inspetor/tracker
+python -m pytest tests/unit
 ```
 Integration tests: 
 ```
-python -m pytest tests/inspetor/integration
+python -m pytest tests/integration
 ```
-P.S.: you'll need pytest installed in your machine/virtualenv. 
 
 ### Publishing
-Are you done? Nice! It's time to publish. If you had finished a new brilliant version, you must create a **release** to that version.
+
 
 #### Realeases
 The way to keep all active versions alive is creating a new release branch to push this new version.

@@ -2,7 +2,7 @@ from datetime import datetime
 import pytest
 
 from src.inspetor_resource import InspetorResource
-from tests.inspetor.tracker.default_models import DefaultModels
+from tests.resources.default_models import DefaultModels
 from src.inspetor.exception.tracker_exception import TrackerException
 
 class TestInspetorResource:

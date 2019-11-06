@@ -162,7 +162,7 @@ class DefaultModels(object):
         item = InspetorItem()
         item.id = "123"
         item.event_id = "123"
-        item.session_id = "123"
+        item.session_id = ["123"]
         item.seating_option = "Seating Option Test"
         item.price = "10"
         item.quantity = "123"

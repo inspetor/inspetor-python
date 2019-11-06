@@ -8,22 +8,22 @@ class InspetorItemException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_ITEM_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_ITEM_EVENT_ID = {
-        'message': 'event_id is a required property. It can\'t be null on creation.',
+        'message': 'event_id is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 
-    REQUIRED_ITEM_SESSION_ID = {
-        'message': 'session_id is a required property. It can\'t be null on creation.',
+    REQUIRED_ITEM_SESSION_IDS = {
+        'message': 'session_ids is a required property. It must be a non-null, non-empty array.',
         'code'   : 7003,
     }
 
     REQUIRED_ITEM_PRICE = {
-        'message': 'price is a required property. It can\'t be null on creation.',
+        'message': 'price is a required property. It cannot be null on creation.',
         'code'   : 7004,
     }
 

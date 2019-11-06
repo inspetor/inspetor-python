@@ -8,12 +8,12 @@ class InspetorPaymentException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_PAYMENT_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_PAYMENT_METHOD = {
-        'message': 'method is a required property. It can\'t be null on creation.',
+        'message': 'method is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 
@@ -28,6 +28,6 @@ class InspetorPaymentException(ExceptionAbstract):
     }
 
     REQUIRED_PAYMENT_CREDIT_CARD = {
-        'message': 'Credit card can\'t be null when method is credit_card.',
+        'message': 'Credit card cannot be null when method is credit_card.',
         'code'   : 7005,
     }

@@ -8,12 +8,12 @@ class InspetorCategoryException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_CATEGORY_ID = {
-        'message': 'account_email is a required property. It can\'t be null.',
+        'message': 'account_email is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_CATEGORY_EMAIL = {
-        'message': 'timestamp is a required property. It can\'t be null on creation.',
+        'message': 'timestamp is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 

@@ -8,37 +8,37 @@ class InspetorSaleException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_SALE_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_SALE_ACCOUNT_ID = {
-        'message': 'account_id is a required property. It can\'t be null on creation.',
+        'message': 'account_id is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 
     REQUIRED_SALE_STATUS = {
-        'message': 'status is a required property. It can\'t be null on creation.',
+        'message': 'status is a required property. It cannot be null on creation.',
         'code'   : 7003,
     }
 
     REQUIRED_SALE_TIMESTAMP = {
-        'message': 'timestamp is a required property. It can\'t be null.',
+        'message': 'timestamp is a required property. It cannot be null.',
         'code'   : 7005,
     }
 
     REQUIRED_SALE_ITEMS = {
-        'message': 'items is a required property. It can\'t be null neither an empty array on creation.',
+        'message': 'items is a required property. It cannot be null neither an empty array on creation.',
         'code'   : 7006,
     }
 
     REQUIRED_SALE_PAYMENT = {
-        'message': 'payment is a required property. It can\'t be null on creation.',
+        'message': 'payment is a required property. It cannot be null on creation.',
         'code'   : 7007,
     }
 
     REQUIRED_SALE_ANALYZED_BY = {
-        'message': 'analyzed_by is a required property. It can\'t be null on update.',
+        'message': 'analyzed_by is a required property. It cannot be null on update.',
         'code'   : 7010,
     }
 
@@ -53,6 +53,6 @@ class InspetorSaleException(ExceptionAbstract):
     }
 
     REQUIRED_SALE_IS_FRAUD = {
-        'message': 'analyzed_by is a required property. It can\'t be null on update.',
+        'message': 'analyzed_by is a required property. It cannot be null on update.',
         'code'   : 7004,
     }

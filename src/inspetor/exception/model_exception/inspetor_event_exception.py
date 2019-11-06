@@ -8,32 +8,32 @@ class InspetorEventException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_EVENT_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_EVENT_NAME = {
-        'message': 'name is a required property. It can\'t be null on creation.',
+        'message': 'name is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 
     REQUIRED_EVENT_TIMESTAMP = {
-        'message': 'timestamp is a required property. It can\'t be null.',
+        'message': 'timestamp is a required property. It cannot be null.',
         'code'   : 7003,
     }
 
     REQUIRED_EVENT_CREATOR_ID = {
-        'message': 'creator_id is a required property. It can\'t be null on creation',
+        'message': 'creator_id is a required property. It cannot be null on creation',
         'code'   : 7004,
     }
 
     REQUIRED_EVENT_ADDRESS = {
-        'message': 'address is a required property when the event has physical place.  It can\'t be null on creation.',
+        'message': 'address is a required property when the event has physical place.  It cannot be null on creation.',
         'code'   : 7005,
     }
 
     REQUIRED_EVENT_SESSIONS = {
-        'message': 'sessions is a required property. It can\'t be null neither an empty array on creation.',
+        'message': 'sessions is a required property. It cannot be null neither an empty array on creation.',
         'code'   : 7006,
     }
 

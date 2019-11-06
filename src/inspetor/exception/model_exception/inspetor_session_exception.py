@@ -8,11 +8,11 @@ class InspetorSessionException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_SESSION_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_SESSION_DATETIME = {
-        'message': 'datetime is a required property. It can\'t be null.',
+        'message': 'datetime is a required property. It cannot be null.',
         'code'   : 7002,
     }

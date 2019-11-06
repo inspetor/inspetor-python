@@ -8,26 +8,26 @@ class InspetorAddressException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_ADDRESS_STREET = {
-        'message': 'street is a required property. It can\'t be null.',
+        'message': 'street is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_ADDRESS_ZIPCODE = {
-        'message': 'zip_code is a required property. It can\'t be null on creation.',
+        'message': 'zip_code is a required property. It cannot be null on creation.',
         'code'   : 7002,
     }
 
     REQUIRED_ADDRESS_CITY = {
-        'message': 'city is a required property. It can\'t be null.',
+        'message': 'city is a required property. It cannot be null.',
         'code'   : 7003,
     }
 
     REQUIRED_ADDRESS_STATE = {
-        'message': 'state is a required property. It can\'t be null.',
+        'message': 'state is a required property. It cannot be null.',
         'code'   : 7004,
     }
 
     REQUIRED_ADDRESS_COUNTRY = {
-        'message': 'country is a required property. It can\'t be null.',
+        'message': 'country is a required property. It cannot be null.',
         'code'   : 7005,
     }

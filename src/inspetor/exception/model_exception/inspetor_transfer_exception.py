@@ -8,27 +8,27 @@ class InspetorTransferException(ExceptionAbstract):
     severity    = logging.CRITICAL
 
     REQUIRED_TRANSFER_ID = {
-        'message': 'id is a required property. It can\'t be null.',
+        'message': 'id is a required property. It cannot be null.',
         'code'   : 7001,
     }
 
     REQUIRED_TRANSFER_TIMESTAMP = {
-        'message': 'timestamp is a required property. It can\'t be null.',
+        'message': 'timestamp is a required property. It cannot be null.',
         'code'   : 7002,
     }
 
     REQUIRED_TRANSFER_ITEM_ID = {
-        'message': 'item_id is a required property. It can\'t be null on creation.',
+        'message': 'item_id is a required property. It cannot be null on creation.',
         'code'   : 7003,
     }
 
     REQUIRED_TRANSFER_ACCOUNT_ID = {
-        'message': 'sender_account_id is a required property. It can\'t be null on creation',
+        'message': 'sender_account_id is a required property. It cannot be null on creation',
         'code'   : 7004,
     }
 
     REQUIRED_TRANSFER_ID_RECEIVER_EMAIL = {
-        'message': 'receiver_email is a required property. It can\'t be null on creation.',
+        'message': 'receiver_email is a required property. It cannot be null on creation.',
         'code'   : 7005,
     }
 
